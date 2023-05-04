@@ -25,11 +25,11 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User ?User { get; set; }
 
         [Required]
         public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual Product ?Product { get; set; }
 
         public ProductReview(int idProductReview, int userId, int productId, int rating, string comment, DateTime createdAt, DateTime updatedAt)
         {

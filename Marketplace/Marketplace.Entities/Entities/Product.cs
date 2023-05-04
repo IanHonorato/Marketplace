@@ -36,7 +36,7 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         public int SellerId { get; set; }
-        public virtual Seller Seller { get; set; }
+        public virtual Seller ?Seller { get; set; }
 
         public virtual ICollection<ProductReview> ?Reviews { get; set; }
 

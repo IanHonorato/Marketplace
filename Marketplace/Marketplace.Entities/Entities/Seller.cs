@@ -23,7 +23,7 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User ?User { get; set; }
 
         public virtual ICollection<Product> ?Products { get; set; }
 

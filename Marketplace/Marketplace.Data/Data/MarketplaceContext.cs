@@ -17,11 +17,6 @@ namespace Marketplace.Data.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //    modelBuilder.Entity<Order>()
-            //            .HasOne(o => o.User)
-            //            .WithMany(u => u.Orders)
-            //            .HasForeignKey(o => o.UserId);
-
             modelBuilder.Entity<User>()
             .HasOne(a => a.Seller)
             .WithOne(b => b.User)

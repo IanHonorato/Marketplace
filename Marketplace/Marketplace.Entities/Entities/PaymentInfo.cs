@@ -29,7 +29,7 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User ?User { get; set; }
 
         public PaymentInfo(int idPaymentInfo, int userId, string type, string cardNumber, string expirationDate, string cvv)
         {

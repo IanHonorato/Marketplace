@@ -64,11 +64,11 @@ namespace Marketplace.Entities.Entities
 
         public virtual ICollection<PaymentInfo> ?PaymentInfos { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> ?Orders { get; set; }
 
         public virtual ICollection<ProductReview> ?Reviews { get; set; }
 
-        public virtual Seller Seller { get; set; }
+        public virtual Seller ?Seller { get; set; }
 
         public User(int iDUser, string name, string cpf, string email, string passwordHash, string passwordSalt, string phone, string address, string city, string state, 
             string country, string zipCode, bool isSeller, DateTime createdAt, DateTime updatedAt)
