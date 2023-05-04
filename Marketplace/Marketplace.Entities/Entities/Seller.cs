@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Marketplace.Entities.Entities
 {
@@ -16,21 +11,29 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string CompanyName { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Email { get; set; }
+        [StringLength(25)]
+        public string CNPJ { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string PasswordHash { get; set; }
+        [StringLength(20)]
+        public string TaxId { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Address { get; set; }
-        
-        [Required]
-        public DateTime RegistrationDate { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual ICollection<Product> ?Products { get; set; }
+
+        public Seller(int iDSeller, int userId, string companyName, string cNPJ, string taxId)
+        {
+            IDSeller = iDSeller;
+            UserId = userId;
+            CompanyName = companyName;
+            CNPJ = cNPJ;
+            TaxId = taxId;
+        }
     }
 }

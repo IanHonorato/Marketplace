@@ -14,6 +14,10 @@ namespace Marketplace.Entities.Entities
         public string Name { get; set; }
 
         [Required]
+        [StringLength(14)]
+        public string Cpf { get; set; }
+
+        [Required]
         [StringLength(100)]
         public string Email { get; set; }
 
@@ -23,20 +27,67 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         [StringLength(100)]
-        public string Address { get; set; }
+        public string PasswordSalt { get; set; }
+
+        [Required]
+        [StringLength(12)]
+        public string Phone { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string PaymentInfo  { get; set; }
+        public string Address { get; set; }
 
-        public User(int idUser, string name, string email, string passwordHash, string address, string paymentInfo)
+        [Required]
+        [StringLength(30)]
+        public string City { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        public string State { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        public string Country { get; set; }
+
+        [Required]
+        [StringLength(9)]
+        public string ZipCode { get; set; }
+
+        [Required]
+        public bool IsSeller { get; set; }
+
+        [Required]
+        public DateTime CreatedAt  { get; set; } = DateTime.Now;
+
+        [Required]
+        public DateTime UpdatedAt { get; set; }
+
+        public virtual ICollection<PaymentInfo> ?PaymentInfos { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<ProductReview> ?Reviews { get; set; }
+
+        public virtual Seller Seller { get; set; }
+
+        public User(int iDUser, string name, string cpf, string email, string passwordHash, string passwordSalt, string phone, string address, string city, string state, 
+            string country, string zipCode, bool isSeller, DateTime createdAt, DateTime updatedAt)
         {
-            IDUser = idUser;
+            IDUser = iDUser;
             Name = name;
+            Cpf = cpf;
             Email = email;
             PasswordHash = passwordHash;
+            PasswordSalt = passwordSalt;
+            Phone = phone;
             Address = address;
-            PaymentInfo = paymentInfo;
+            City = city;
+            State = state;
+            Country = country;
+            ZipCode = zipCode;
+            IsSeller = isSeller;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
         }
     }
 }
