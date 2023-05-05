@@ -424,6 +424,21 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+      "Marketplace.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.5",
+          "Npgsql": "7.0.4",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+        },
+        "compile": {
+          "bin/placeholder/Marketplace.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Marketplace.Entities.dll": {}
+        }
+      },
       "Marketplace.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1082,6 +1097,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Marketplace.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Marketplace.Entities/Marketplace.Entities.csproj",
+      "msbuildProject": "../Marketplace.Entities/Marketplace.Entities.csproj"
+    },
     "Marketplace.Models/1.0.0": {
       "type": "project",
       "path": "../Marketplace.Models/Marketplace.Models.csproj",
@@ -1090,6 +1110,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Marketplace.Entities >= 1.0.0",
       "Marketplace.Models >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
@@ -1124,6 +1145,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj": {
+              "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj"
+            },
             "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Models\\Marketplace.Models.csproj": {
               "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Models\\Marketplace.Models.csproj"
             }

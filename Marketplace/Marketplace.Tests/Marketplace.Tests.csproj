@@ -13,12 +13,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>%24%28TargetPath%29</LastGenOutput>
     </T4ParameterFile>
+    <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -33,6 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Marketplace.Entities\Marketplace.Entities.csproj" />
+    <ProjectReference Include="..\Marketplace.Repository\Marketplace.Repository.csproj" />
     <ProjectReference Include="..\Marketplace.Services\Marketplace.Services.csproj" />
   </ItemGroup>
 

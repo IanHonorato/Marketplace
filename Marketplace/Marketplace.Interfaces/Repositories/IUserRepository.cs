@@ -1,4 +1,5 @@
 ﻿using Marketplace.Models.Dto;
+using Marketplace.Entities.Entities;
 
 namespace Marketplace.Interfaces.Repositories
 {
@@ -8,7 +9,7 @@ namespace Marketplace.Interfaces.Repositories
         Task UpdateUser(UserUpdateDto user);
         Task DeleteUser(int idUser);
         Task<List<UserResponseDto>> GetAllUsers();
-        Task<UserResponseDto> GetUser(int idUser);
+        Task<User> GetUserByIdAsync(int idUser);
         Task UserChangePassword(int idUser, string password);
     }
 }

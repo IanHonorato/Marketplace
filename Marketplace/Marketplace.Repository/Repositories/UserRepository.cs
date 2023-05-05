@@ -1,4 +1,5 @@
-﻿using Marketplace.Interfaces.Repositories;
+﻿using Marketplace.Entities.Entities;
+using Marketplace.Interfaces.Repositories;
 using Marketplace.Models.Dto;
 
 namespace Marketplace.Repository.Repositories
@@ -16,7 +17,7 @@ namespace Marketplace.Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<UserResponseDto> GetUser(int idUser)
+        public Task<User> GetUserByIdAsync(int idUser)
         {
             throw new NotImplementedException();
         }
