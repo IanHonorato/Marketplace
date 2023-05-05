@@ -1,0 +1,122 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.IO" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#
+    // Define uma lista de classes para gerar
+    var classes = new List<string> {
+        "MyController",
+        "IMyRepository",
+        "IMyService",
+        "MyDto",
+        "MyRepository",
+        "MyService",
+        "MyServiceTestFixture",
+        "MyServiceTests"
+    };
+    
+    // Define um dicionário para armazenar o código específico de cada classe
+    var codigoEspecifico = new Dictionary<string, string> {
+        {"MyController", @"namespace Marketplace.API.Controllers
+{
+    public class MyController : Controller
+    {
+        private readonly IMyService _myService;
+        public MyController(IMyService myService)
+        {
+            _myService = myService;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+    }
+}"},
+        {"IMyRepository", @"namespace Marketplace.Interfaces.Repositories
+{
+    public interface IMyRepository
+    {
+        
+    }
+}"},
+        {"IMyService", "namespace Marketplace.Interfaces.Services
+{
+    public interface IMyService
+    {
+   
+    }
+}"},
+        {"MyDto", @"namespace Marketplace.Models.Dto
+{
+    public class UserDto
+    {
+    }"},
+        {"MyRepository", "namespace Marketplace.Repository.Repositories
+{
+    public class MyRepository : IMyRepository
+    {
+        public MyRepository() { }
+    }"},
+        {"MyService", @"namespace Marketplace.Services.Services
+{
+    public class MyService : IMyService
+    {
+        public readonly IMyRepository _myRepository;
+        public MyService(IMyRepository myRepository) 
+        { 
+            _myRepository = myRepository;
+        }
+    }"},
+        {"MyServiceTestFixture", "namespace Marketplace.Tests.ServicesFixture
+{
+    public class MyTestFixture : IDisposable
+    {
+        public MyService myService { get; private set; }
+        public MyTestFixture() { }
+        }"},
+        {"MyServiceTests", "namespace Marketplace.Tests.ServicesTests
+{
+    public class UserServiceTests : IClassFixture<UserTestFixture>
+    {
+        private readonly UserTestFixture _fixture;
+        public UserServiceTests(UserTestFixture fixture) {  _fixture = fixture; }
+    }
+}"}
+    };
+    
+    // Define o diretório de destino para cada arquivo
+    var destino = new Dictionary<string, string> {
+        {"MyController", @"Marketplace.API\\Controllers"},
+        {"IMyRepository", @"Marketplace.Interfaces\\Repositories"},
+        {"IMyService", @"Marketplace.Interfaces\\Services"},
+        {"MyDto", @"Marketplace.Models\\Dto"},
+        {"MyRepository", @"Marketplace.Repository\\Repositories"},
+        {"MyService", @"Marketplace.Services\\Services"},
+        {"MyServiceTestFixture", @"Marketplace.Tests\\ServicesFixture"},
+        {"MyServiceTests", @"Marketplace.Tests\\ServicesTests"}
+    };
+#>
+<#
+    // Para cada classe na lista, gera um arquivo com o código base e o código específico
+    foreach (var classe in classes) {
+        // Define o caminho completo do arquivo de destino
+        var caminhoCompleto = Path.Combine(destino[classe], classe + ".cs");
+        
+        // Abre o arquivo de destino e escreve o código base
+        using (var writer = new StreamWriter(caminhoCompleto)) {
+            writer.WriteLine("using System;");
+            writer.WriteLine();
+            writer.WriteLine("        // código base da classe");
+            
+            // Adiciona o código específico se houver
+            if (codigoEspecifico.ContainsKey(classe)) {
+                writer.WriteLine();
+                writer.WriteLine(codigoEspecifico[classe]);
+            }
+            
+            writer.WriteLine("#> Output to {0}", outputFile);

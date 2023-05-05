@@ -5,19 +5,24 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.API", "Marketplace.API\Marketplace.API.csproj", "{E35F2057-62C3-4E75-BB0F-1C46C0A3ECB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Entities", "Marketplace.Entities\Marketplace.Entities.csproj", "{9C68B5B7-6E2B-4C66-9153-6461349DC665}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Entities", "Marketplace.Entities\Marketplace.Entities.csproj", "{9C68B5B7-6E2B-4C66-9153-6461349DC665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketplace.Data\Marketplace.Data.csproj", "{DC7EDD62-5B97-4F8C-94EE-3121CB89E19E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Data", "Marketplace.Data\Marketplace.Data.csproj", "{DC7EDD62-5B97-4F8C-94EE-3121CB89E19E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Services", "Marketplace.Services\Marketplace.Services.csproj", "{2EAC2EB0-3FC9-4227-89BD-95E99272FA97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Services", "Marketplace.Services\Marketplace.Services.csproj", "{2EAC2EB0-3FC9-4227-89BD-95E99272FA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Interfaces", "Marketplace.Interfaces\Marketplace.Interfaces.csproj", "{5BB0FE5B-144C-4314-8217-BE0EEFDA3E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Interfaces", "Marketplace.Interfaces\Marketplace.Interfaces.csproj", "{5BB0FE5B-144C-4314-8217-BE0EEFDA3E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{950BE235-4A50-4793-B32F-02950E1B6772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{950BE235-4A50-4793-B32F-02950E1B6772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Repository", "Marketplace.Repository\Marketplace.Repository.csproj", "{1CD63350-5C77-4848-93B6-025581779CF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Repository", "Marketplace.Repository\Marketplace.Repository.csproj", "{1CD63350-5C77-4848-93B6-025581779CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Tests", "Marketplace.Tests\Marketplace.Tests.csproj", "{183A1004-3692-4434-A2B7-3D7196A1589F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Tests", "Marketplace.Tests\Marketplace.Tests.csproj", "{183A1004-3692-4434-A2B7-3D7196A1589F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{D6C67922-44E5-4B71-8481-8023DCBEB232}"
+	ProjectSection(SolutionItems) = preProject
+		NewModule.tt = NewModule.tt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

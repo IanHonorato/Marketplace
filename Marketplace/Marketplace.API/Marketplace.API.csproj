@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -18,11 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <T4ParameterFile Include="**\*.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>%24%28TargetPath%29</LastGenOutput>
+    </T4ParameterFile>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj" />
+    <ProjectReference Include="..\Marketplace.Interfaces\Marketplace.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

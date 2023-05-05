@@ -541,6 +541,37 @@
         "runtime": {
           "bin/placeholder/Marketplace.Entities.dll": {}
         }
+      },
+      "Marketplace.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Marketplace.Models": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.5",
+          "Npgsql": "7.0.4",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+        },
+        "compile": {
+          "bin/placeholder/Marketplace.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Marketplace.Interfaces.dll": {}
+        }
+      },
+      "Marketplace.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.5",
+          "Npgsql": "7.0.4",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+        },
+        "compile": {
+          "bin/placeholder/Marketplace.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Marketplace.Models.dll": {}
+        }
       }
     }
   },
@@ -1319,11 +1350,22 @@
       "type": "project",
       "path": "../Marketplace.Entities/Marketplace.Entities.csproj",
       "msbuildProject": "../Marketplace.Entities/Marketplace.Entities.csproj"
+    },
+    "Marketplace.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Marketplace.Interfaces/Marketplace.Interfaces.csproj",
+      "msbuildProject": "../Marketplace.Interfaces/Marketplace.Interfaces.csproj"
+    },
+    "Marketplace.Models/1.0.0": {
+      "type": "project",
+      "path": "../Marketplace.Models/Marketplace.Models.csproj",
+      "msbuildProject": "../Marketplace.Models/Marketplace.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Marketplace.Data >= 1.0.0",
+      "Marketplace.Interfaces >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Npgsql >= 7.0.4",
@@ -1360,6 +1402,9 @@
           "projectReferences": {
             "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Data\\Marketplace.Data.csproj": {
               "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Data\\Marketplace.Data.csproj"
+            },
+            "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Interfaces\\Marketplace.Interfaces.csproj": {
+              "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Interfaces\\Marketplace.Interfaces.csproj"
             }
           }
         }
