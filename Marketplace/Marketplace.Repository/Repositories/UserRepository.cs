@@ -1,35 +1,49 @@
-﻿using Marketplace.Entities.Entities;
+﻿using Marketplace.Data.Data;
+using Marketplace.Entities.Entities;
 using Marketplace.Interfaces.Repositories;
 using Marketplace.Models.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace Marketplace.Repository.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public UserRepository() { }
-        public Task DeleteUser(int idUser)
+        private readonly MarketplaceContext _context;
+        public UserRepository(MarketplaceContext context) 
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task DeleteUser(int idUser)
+        {
+            var user = await _context.User.FindAsync(idUser);
+            if(user != null) 
+            { 
+                _context.User.Remove(user);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<List<UserResponseDto>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return await _context.User.ToListAsync();
         }
 
-        public Task<User> GetUserByIdAsync(int idUser)
+        public async Task<User> GetUserByIdAsync(int idUser)
         {
-            throw new NotImplementedException();
+            var user = await _context.User.FindAsync(idUser);
+            return user;
         }
 
-        public Task SaveUser(UserCreateDto user)
+        public async Task SaveUser(User user)
         {
-            throw new NotImplementedException();
+            await _context.User.AddAsync(user);
+            await _context.SaveChangesAsync();
         }
 
-        public Task UpdateUser(UserUpdateDto user)
+        public async Task UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            _context.User.Update(user);
+            await _context.SaveChangesAsync();
         }
 
         public Task UserChangePassword(int idUser, string password)

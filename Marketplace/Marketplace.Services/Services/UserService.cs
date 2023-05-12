@@ -27,7 +27,7 @@ namespace Marketplace.Services.Services
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUserByIdAsync(int idUser)
+        public Task<UserResponseDto> GetUserByIdAsync(int idUser)
         {
             throw new NotImplementedException();
         }

@@ -9,7 +9,7 @@ namespace Marketplace.Interfaces.Services
         Task UpdateUser(UserUpdateDto user);
         Task DeleteUser(int idUser);
         Task<List<UserResponseDto>> GetAllUsers();
-        Task<User> GetUserByIdAsync(int idUser);
+        Task<UserResponseDto> GetUserByIdAsync(int idUser);
         Task UserChangePassword(int idUser, string password);
     }
 }

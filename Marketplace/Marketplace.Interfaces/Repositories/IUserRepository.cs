@@ -5,10 +5,10 @@ namespace Marketplace.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        Task SaveUser(UserCreateDto user);
-        Task UpdateUser(UserUpdateDto user);
+        Task SaveUser(User user);
+        Task UpdateUser(User user);
         Task DeleteUser(int idUser);
-        Task<List<UserResponseDto>> GetAllUsers();
+        Task<List<User>> GetAllUsers();
         Task<User> GetUserByIdAsync(int idUser);
         Task UserChangePassword(int idUser, string password);
     }

@@ -1,6 +1,7 @@
 ﻿using Marketplace.Tests.ServicesFixture;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,18 @@ namespace Marketplace.Tests.ServicesTests
 
             Assert.NotNull(result);
             Assert.Equal(1, result.IDUser);
+        }
+
+        [Fact]
+        public async void Test_Meet_Performance_Requirements()
+        {
+            var stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+            var result = await _fixture.userService.GetAllUsers();
+            stopwatch.Stop();
+
+            Assert.True(stopwatch.ElapsedMilliseconds < 1000); //Example performance requirement of less than 1 second
         }
     }
 }
