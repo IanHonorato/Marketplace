@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Marketplace.API.Controllers
 {
-    [ApiController]
-    [Route("marketplace/[controller]")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -19,7 +17,7 @@ namespace Marketplace.API.Controllers
             return View();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<ActionResult<UserResponseDto>> GetUserById(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
@@ -31,35 +29,35 @@ namespace Marketplace.API.Controllers
             return Ok(user);
         }
 
-        [HttpGet]
+        [HttpGet("user")]
         public async Task<ActionResult<List<UserResponseDto>>> GetAllUsers()
         {
             var users = await _userService.GetAllUsers();
             return Ok(users);
         }
 
-        [HttpPost]
+        [HttpPost("user")]
         public async Task<ActionResult<int>> CreateUser(UserCreateDto user)
         {
             var userId = await _userService.SaveUser(user);
             return CreatedAtAction(nameof(GetUserById), new { id = userId }, userId);
         }
 
-        [HttpPut]
+        [HttpPut("user")]
         public async Task<ActionResult> UpdateUser(UserUpdateDto user)
         {
             await _userService.UpdateUser(user);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("user/{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
             await _userService.DeleteUser(id);
             return NoContent();
         }
 
-        [HttpPost("{id}/changepassword")]
+        [HttpPost("user/{id}/changepassword")]
         public async Task<ActionResult> ChangePassword(int id, string password)
         {
             await _userService.UserChangePassword(id, password);
