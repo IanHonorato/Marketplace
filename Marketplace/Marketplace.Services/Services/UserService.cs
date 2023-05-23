@@ -2,11 +2,6 @@
 using Marketplace.Interfaces.Repositories;
 using Marketplace.Interfaces.Services;
 using Marketplace.Models.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Marketplace.Services.Services
 {
@@ -19,32 +14,103 @@ namespace Marketplace.Services.Services
         }
         public Task DeleteUser(int idUser)
         {
-            throw new NotImplementedException();
+            var request = _userRepository.DeleteUser(idUser);
+            return request;
         }
 
-        public Task<List<UserResponseDto>> GetAllUsers()
+        public async Task<List<UserResponseDto>> GetAllUsers()
         {
-            throw new NotImplementedException();
+            var users = await _userRepository.GetAllUsers();
+            var userResponseDtos = new List<UserResponseDto>();
+            
+            foreach (var user in users)
+            {
+                userResponseDtos.Add(new UserResponseDto
+                {
+                    IDUser = user.IDUser,
+                    Name = user.Name,
+                    Cpf = user.Cpf,
+                    Email = user.Email,
+                    PasswordHash = user.PasswordHash,
+                    Phone = user.Phone,
+                    Address = user.Address,
+                    City = user.City,
+                    State = user.State,
+                    Country = user.Country,
+                    ZipCode = user.ZipCode,
+                    IsSeller = user.IsSeller
+                });
+            }
+            
+            return userResponseDtos;
         }
 
-        public Task<UserResponseDto> GetUserByIdAsync(int idUser)
+        public async Task<UserResponseDto> GetUserByIdAsync(int idUser)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetUserByIdAsync(idUser);
+            if (user != null)
+            {
+                var userResponseDto = new UserResponseDto
+                {
+                    IDUser = user.IDUser,
+                    Name = user.Name,
+                    Cpf = user.Cpf,
+                    Email = user.Email,
+                    PasswordHash = user.PasswordHash,
+                    Phone = user.Phone,
+                    Address = user.Address,
+                    City = user.City,
+                    State = user.State,
+                    Country = user.Country,
+                    ZipCode = user.ZipCode,
+                    IsSeller = user.IsSeller
+                };
+                return userResponseDto;
+            }
+            return null;
         }
 
-        public Task SaveUser(UserCreateDto user)
+        public async Task<int> SaveUser(UserCreateDto userDto)
         {
-            throw new NotImplementedException();
+            var user = new User(
+                userDto.Name, userDto.Cpf, userDto.Email, userDto.PasswordHash, "PasswordSalt", userDto.Phone, userDto.Address, userDto.City, userDto.State,
+                userDto.Country, userDto.ZipCode, userDto.IsSeller, DateTime.Now, DateTime.Now);
+            var idUser = await _userRepository.SaveUser(user);
+            
+            return idUser;
         }
 
-        public Task UpdateUser(UserUpdateDto user)
+        public async Task<int> UpdateUser(UserUpdateDto userDto)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetUserByIdAsync(userDto.IDUser);
+            
+            if(user != null)
+            {
+                if(userDto.Name != null) user.Name = userDto.Name;
+                if(userDto.Cpf != null) user.Cpf = userDto.Cpf;
+                if(userDto.Email != null) user.Email = userDto.Email;
+                if(userDto.PasswordHash != null) user.PasswordHash = userDto.PasswordHash;
+                if(userDto.Phone != null) user.Phone = userDto.Phone;
+                if(userDto.Address != null) user.Address = userDto.Address;
+                if(userDto.City != null) user.City = userDto.City;
+                if(userDto.State != null) user.State = userDto.State;
+                if(userDto.Country != null) user.Country = userDto.Country;
+                if(userDto.ZipCode != null) user.ZipCode = userDto.ZipCode;
+                user.IsSeller = userDto.IsSeller;
+                user.UpdatedAt = DateTime.Now;
+
+                int request = await _userRepository.UpdateUser(user);
+
+                return request;
+            }
+
+            return 0;
         }
 
-        public Task UserChangePassword(int idUser, string password)
+        public async Task<int> UserChangePassword(int idUser, string password)
         {
-            throw new NotImplementedException();
+            var request = await _userRepository.UserChangePassword(idUser, password);
+            return request;
         }
     }
 }

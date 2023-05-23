@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Sn8poBXuT+1KdlFnII1/2gtsOF51wA9RhvHOpXRTPe6gQAToXZMbjQBtrtM6AVUr9q2wbiJdlThV6VCm6SIfwQ==",
+  "dgSpecHash": "UoTjpiZXkXoOlerNNpELKV+3EY7MA6ru5r5hJ9XTEBOqbTKFX2ukfR/tDuHrxSjrXbttdxyZCsII+XrFO4+sDA==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Services\\Marketplace.Services.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ian06\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ian06\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\ian06\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ian06\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\ian06\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
     "C:\\Users\\ian06\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",

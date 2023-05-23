@@ -27,9 +27,8 @@ namespace Marketplace.Entities.Entities
 
         public virtual ICollection<Product> ?Products { get; set; }
 
-        public Seller(int iDSeller, int userId, string companyName, string cNPJ, string taxId)
+        public Seller(int userId, string companyName, string cNPJ, string taxId)
         {
-            IDSeller = iDSeller;
             UserId = userId;
             CompanyName = companyName;
             CNPJ = cNPJ;

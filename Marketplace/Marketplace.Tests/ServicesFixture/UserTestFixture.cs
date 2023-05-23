@@ -1,16 +1,10 @@
-﻿using Bogus;
+﻿using AutoMapper;
+using Bogus;
 using Bogus.Extensions.Brazil;
 using Marketplace.Entities.Entities;
-using Marketplace.Models.Dto;
-using Marketplace.Repository.Repositories;
+using Marketplace.Interfaces.Repositories;
 using Marketplace.Services.Services;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Marketplace.Tests.ServicesFixture
 {
@@ -19,7 +13,7 @@ namespace Marketplace.Tests.ServicesFixture
         public UserService userService { get; private set; }
         public UserTestFixture() 
         {
-            var userRepositoryMock = new Mock<UserRepository>();
+            var userRepositoryMock = new Mock<IUserRepository>();
             Faker<User> _fakerUserResponseDto = new Faker<User>()
                 .RuleFor(m => m.IDUser, f => 1)
                 .RuleFor(m => m.Name, f => f.Name.FirstName())
@@ -42,7 +36,7 @@ namespace Marketplace.Tests.ServicesFixture
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Marketplace.Data.Data;
 using Marketplace.Entities.Entities;
 using Marketplace.Interfaces.Repositories;
-using Marketplace.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marketplace.Repository.Repositories
@@ -30,25 +29,37 @@ namespace Marketplace.Repository.Repositories
 
         public async Task<User> GetUserByIdAsync(int idUser)
         {
-            var user = await _context.User.FindAsync(idUser);
-            return user;
+            return await _context.User.FindAsync(idUser);
         }
 
-        public async Task SaveUser(User user)
+        public async Task<int> SaveUser(User user)
         {
             await _context.User.AddAsync(user);
             await _context.SaveChangesAsync();
+
+            return user.IDUser;
         }
 
-        public async Task UpdateUser(User user)
+        public async Task<int> UpdateUser(User user)
         {
             _context.User.Update(user);
             await _context.SaveChangesAsync();
+
+            return user.IDUser;
         }
 
-        public Task UserChangePassword(int idUser, string password)
+        public async Task<int> UserChangePassword(int idUser, string password)
         {
-            throw new NotImplementedException();
+            var user = await _context.User.FindAsync(idUser);
+            if( user != null )
+            {
+                user.PasswordHash = password;
+                await _context.SaveChangesAsync();
+
+                return user.IDUser;
+            }
+
+            return 0;
         }
     }
 }
