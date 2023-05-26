@@ -48,9 +48,8 @@ namespace Marketplace.Entities.Entities
 
         public virtual ICollection<OrderItem> ?Items { get; set; }
 
-        public Order(int idOrder, int userId, decimal totalPrice, DateTime createdAt, DateTime updatedAt, Status status, string address, string city, string state, string country, string zipCode)
+        public Order(int userId, decimal totalPrice, DateTime createdAt, DateTime updatedAt, Status status, string address, string city, string state, string country, string zipCode)
         {
-            IdOrder = idOrder;
             UserId = userId;
             TotalPrice = totalPrice;
             CreatedAt = createdAt;

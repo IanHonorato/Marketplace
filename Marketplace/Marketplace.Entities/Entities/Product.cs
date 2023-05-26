@@ -11,15 +11,15 @@ namespace Marketplace.Entities.Entities
 
         [Required]
         [StringLength(100)]
-        public int Name { get; set;}
+        public string Name { get; set;}
 
         [Required]
         [StringLength(1000)]
-        public int Description { get; set; }
+        public string Description { get; set; }
 
         [Required]
         [StringLength(1000)]
-        public int ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
 
         [Required]
         public decimal Price { get; set; }
@@ -42,9 +42,8 @@ namespace Marketplace.Entities.Entities
 
         public virtual ICollection<OrderItem> ?OrderItems { get; set; }
 
-        public Product(int idProduct, int sellerId, int name, int description, int imageUrl, decimal price, int stock, DateTime createdAt, DateTime updatedAt)
+        public Product(int sellerId, string name, string description, string imageUrl, decimal price, int stock, DateTime createdAt, DateTime updatedAt)
         {
-            IdProduct = idProduct;
             SellerId = sellerId;
             Name = name;
             Description = description;

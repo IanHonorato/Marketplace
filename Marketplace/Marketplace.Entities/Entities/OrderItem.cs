@@ -23,9 +23,8 @@ namespace Marketplace.Entities.Entities
         public int ProductId { get; set; }
         public virtual Product ?Product { get; set; }
 
-        public OrderItem(int idOrderItems, int orderId, int productId, int quantity, decimal price)
+        public OrderItem(int orderId, int productId, int quantity, decimal price)
         {
-            IdOrderItems = idOrderItems;
             OrderId = orderId;
             ProductId = productId;
             Quantity = quantity;

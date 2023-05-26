@@ -269,7 +269,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj": {
+                "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -430,6 +434,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Data\\Marketplace.Data.csproj": {
+                "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Data\\Marketplace.Data.csproj"
+              },
               "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj": {
                 "projectPath": "C:\\Projetos\\Marketplace\\Marketplace\\Marketplace.Entities\\Marketplace.Entities.csproj"
               },
