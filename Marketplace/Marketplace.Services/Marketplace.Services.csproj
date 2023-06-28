@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj" />
     <ProjectReference Include="..\Marketplace.Entities\Marketplace.Entities.csproj" />
     <ProjectReference Include="..\Marketplace.Interfaces\Marketplace.Interfaces.csproj" />
   </ItemGroup>

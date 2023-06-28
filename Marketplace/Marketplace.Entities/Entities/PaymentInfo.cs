@@ -31,9 +31,8 @@ namespace Marketplace.Entities.Entities
         public int UserId { get; set; }
         public virtual User ?User { get; set; }
 
-        public PaymentInfo(int idPaymentInfo, int userId, string type, string cardNumber, string expirationDate, string cvv)
+        public PaymentInfo(int userId, string type, string cardNumber, string expirationDate, string cvv)
         {
-            IdPaymentInfo = idPaymentInfo;
             UserId = userId;
             Type = type;
             CardNumber = cardNumber;

@@ -31,9 +31,8 @@ namespace Marketplace.Entities.Entities
         public int ProductId { get; set; }
         public virtual Product ?Product { get; set; }
 
-        public ProductReview(int idProductReview, int userId, int productId, int rating, string comment, DateTime createdAt, DateTime updatedAt)
+        public ProductReview(int userId, int productId, int rating, string comment, DateTime createdAt, DateTime updatedAt)
         {
-            IdProductReview = idProductReview;
             UserId = userId;
             ProductId = productId;
             Rating = rating;
