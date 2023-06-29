@@ -24,6 +24,8 @@
     </T4ParameterFile>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj" />
     <ProjectReference Include="..\Marketplace.Interfaces\Marketplace.Interfaces.csproj" />
+    <ProjectReference Include="..\Marketplace.Repository\Marketplace.Repository.csproj" />
+    <ProjectReference Include="..\Marketplace.Services\Marketplace.Services.csproj" />
   </ItemGroup>
 
 </Project>

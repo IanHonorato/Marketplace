@@ -155,17 +155,20 @@ namespace Marketplace.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Description")
+                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(1000)
-                        .HasColumnType("integer");
+                        .HasColumnType("character varying(1000)");
 
-                    b.Property<int>("ImageUrl")
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasMaxLength(1000)
-                        .HasColumnType("integer");
+                        .HasColumnType("character varying(1000)");
 
-                    b.Property<int>("Name")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("integer");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
@@ -441,8 +444,7 @@ namespace Marketplace.Data.Migrations
 
                     b.Navigation("Reviews");
 
-                    b.Navigation("Seller")
-                        .IsRequired();
+                    b.Navigation("Seller");
                 });
 #pragma warning restore 612, 618
         }

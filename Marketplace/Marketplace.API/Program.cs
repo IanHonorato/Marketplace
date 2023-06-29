@@ -1,4 +1,8 @@
 using Marketplace.Data.Data;
+using Marketplace.Interfaces.Repositories;
+using Marketplace.Interfaces.Services;
+using Marketplace.Repository.Repositories;
+using Marketplace.Services.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +11,24 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MarketplaceContext");
 builder.Services.AddDbContext<MarketplaceContext>(options =>
     options.UseNpgsql(connectionString));
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+//Add Services in your scoped.
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISellerService, SellerService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+builder.Services.AddScoped<IPaymentInfoService, PaymentInfoService>();
+builder.Services.AddScoped<IProductReviewService, ProductReviewService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISellerRepository, SellerRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IPaymentInfoRepository, PaymentInfoRepository>();
+builder.Services.AddScoped<IProductReviewRepository, ProductReviewRepository>();
 
 // Add services to the container.
 builder.Services.AddControllers();
