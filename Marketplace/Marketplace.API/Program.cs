@@ -29,6 +29,8 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 builder.Services.AddScoped<IPaymentInfoRepository, PaymentInfoRepository>();
 builder.Services.AddScoped<IProductReviewRepository, ProductReviewRepository>();
+builder.Services.AddScoped<IDatabasePopulatorService, DatabasePopulatorService>();
+builder.Services.AddScoped<DatabasePopulatorService>();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -40,6 +42,13 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var populator = services.GetRequiredService<DatabasePopulatorService>();
+    await populator.DatabasePopulator();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

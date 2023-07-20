@@ -32,6 +32,11 @@ namespace Marketplace.Repository.Repositories
             return await _context.User.FindAsync(idUser);
         }
 
+        public List<User> GetAllUsersSellers()
+        {
+            return _context.User.Where(x => x.IsSeller == true).ToList();
+        }
+
         public async Task<int> SaveUser(User user)
         {
             await _context.User.AddAsync(user);

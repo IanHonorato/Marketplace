@@ -16,7 +16,7 @@ namespace Marketplace.Entities.Entities
         public string Type { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(30)]
         public string CardNumber { get; set; }
 
         [Required]

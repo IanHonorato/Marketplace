@@ -21,15 +21,15 @@ namespace Marketplace.Entities.Entities
         public string Address { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(100)]
         public string City { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(100)]
         public string State { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(50)]
         public string Country { get; set; }
 
         [Required]

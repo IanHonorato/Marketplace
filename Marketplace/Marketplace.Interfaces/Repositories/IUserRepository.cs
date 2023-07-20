@@ -10,6 +10,7 @@ namespace Marketplace.Interfaces.Repositories
         Task DeleteUser(int idUser);
         Task<List<User>> GetAllUsers();
         Task<User> GetUserByIdAsync(int idUser);
+        List<User> GetAllUsersSellers();
         Task<int> UserChangePassword(int idUser, string password);
     }
 }
